@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Luyện so sánh HSK 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=Noto+Sans+SC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eaf0f6;--card:#fff;--ink:#14213d;--mut:#5b6b85;--line:#d5deea;--a:#2f5fd0;--b:#12806a;--k:#d9480f;--j:#7a4fc4;--ok:#12806a;--bad:#d03a3a;--tipbg:#fff6df;--tipbd:#e6a720;--chip:#f3f6fb;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0f1626;--card:#18233a;--ink:#e8eefb;--mut:#9fb0cc;--line:#2c3b58;--a:#7fa4ff;--b:#4fd1b0;--k:#ff9a62;--j:#b79bff;--ok:#4fd1b0;--bad:#ff7b7b;--tipbg:#2b2614;--tipbd:#c99a2e;--chip:#1f2c47}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0f1626;--card:#18233a;--ink:#e8eefb;--mut:#9fb0cc;--line:#2c3b58;--a:#7fa4ff;--b:#4fd1b0;--k:#ff9a62;--j:#b79bff;--ok:#4fd1b0;--bad:#ff7b7b;--tipbg:#2b2614;--tipbd:#c99a2e;--chip:#1f2c47}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 'Be Vietnam Pro',system-ui,sans-serif}
+.zh{font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 60px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+h1{margin:0;font-size:1.5rem;line-height:1.2}
+h1 span{font-family:'Noto Sans SC',sans-serif;color:var(--k);margin-right:8px}
+.tabs{display:flex;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px;margin-bottom:18px}
+.tabs button{flex:1;border:0;background:none;color:var(--mut);font:700 .95rem 'Be Vietnam Pro',sans-serif;padding:10px;border-radius:10px;cursor:pointer}
+.tabs button.on{background:var(--ink);color:var(--bg)}
+button:focus-visible{outline:3px solid var(--a);outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px}
+.card h3{margin:0 0 10px;font-size:1.08rem}
+.f{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.c{font:700 1.05rem 'Noto Sans SC','Be Vietnam Pro',sans-serif;padding:3px 11px;border-radius:8px;background:var(--chip);border:1.5px solid currentColor}
+.c.a{color:var(--a)}.c.b{color:var(--b)}.c.k{color:var(--k)}.c.j{color:var(--j)}.c.n{color:var(--mut)}
+.tip{background:var(--tipbg);border-left:4px solid var(--tipbd);padding:10px 12px;border-radius:0 10px 10px 0;margin:0 0 12px;font-size:.95rem}
+.ex{margin:0;padding:0;list-style:none}
+.ex li{padding:7px 0;border-top:1px dashed var(--line)}
+.ex .zh{font-size:1.2rem;font-weight:500;display:block}
+.ex small{color:var(--mut);font-size:.88rem}
+.warn{width:100%;border-collapse:collapse;font-size:.95rem}
+.warn td{padding:8px 6px;border-top:1px solid var(--line);vertical-align:top}
+.x{color:var(--bad)}.v{color:var(--ok)}
+.bar{display:flex;justify-content:space-between;align-items:center;color:var(--mut);font-size:.9rem;margin-bottom:8px}
+.prog{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin-bottom:14px}
+.prog i{display:block;height:100%;background:var(--b);transition:width .3s}
+.q{font-size:1.15rem;font-weight:700;margin:0 0 4px}
+.tag{color:var(--mut);font-size:.88rem;margin:0 0 14px}
+.ans{min-height:68px;border:2px dashed var(--line);border-radius:14px;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.ans:empty::before{content:'Chạm vào các thẻ bên dưới để ghép câu';color:var(--mut);font-size:.9rem}
+.bank{display:flex;flex-wrap:wrap;gap:8px;min-height:52px;margin-bottom:16px}
+.t{font:700 1.3rem 'Noto Sans SC',sans-serif;background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-bottom-width:4px;border-radius:12px;padding:6px 14px;cursor:pointer;transition:transform .1s}
+.t:active{transform:translateY(2px)}
+.t.ok{border-color:var(--ok);color:var(--ok)}.t.bad{border-color:var(--bad);color:var(--bad)}
+.t.used{visibility:hidden}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:700 .95rem 'Be Vietnam Pro',sans-serif;border:1.5px solid var(--line);background:var(--card);color:var(--ink);padding:10px 16px;border-radius:12px;cursor:pointer}
+.btn.pri{background:var(--k);border-color:var(--k);color:#fff}
+.btn:disabled{opacity:.4;cursor:default}
+.fb{margin-top:14px;padding:14px;border-radius:14px;font-size:.95rem}
+.fb.good{background:color-mix(in srgb,var(--ok) 14%,var(--card));border:1px solid var(--ok)}
+.fb.err{background:color-mix(in srgb,var(--bad) 10%,var(--card));border:1px solid var(--bad)}
+.fb b{display:block;margin-bottom:4px}
+.fb p{margin:6px 0}
+.big{font-size:3rem;font-weight:700;line-height:1;margin:8px 0}
+.stat{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.stat div{flex:1;min-width:100px;background:var(--chip);border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-size:1.3rem}
+.hide{display:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><h1><span>比</span>Luyện so sánh HSK 3</h1><div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end"><button id="th" class="btn" onclick="toggleTheme()">🌙 Tối</button><button id="snd" class="btn" onclick="toggleSnd()">🔊 Bật tiếng</button></div></header>
+<div class="tabs" role="tablist"><button id="tl" class="on" onclick="tab('l')">Học cấu trúc</button><button id="tp" onclick="tab('p')">Luyện tập</button></div>
+<main id="learn"></main>
+<main id="prac" class="hide"></main>
+</div>
+<script>
+var P=[
+{id:'bi',t:'Hơn: A 比 B + tính từ',f:[['A','a'],['比','k'],['B','b'],['Adj','j']],
+tip:'Nhớ: 比 = “so với”. Tính từ để trần, tuyệt đối không thêm 很 / 非常 / 太. Muốn nói hơn nhiều thì thêm đuôi vào SAU tính từ.',
+ex:[['他比我高。','Anh ấy cao hơn tôi.'],['今天比昨天冷一点儿。','Hôm nay lạnh hơn hôm qua một chút. (一点儿 = ít)'],['他比我高得多。','Anh ấy cao hơn tôi nhiều. (得多 / 多了 = nhiều)'],['他比我大两岁。','Anh ấy lớn hơn tôi 2 tuổi. (số lượng đặt sau tính từ)']]},
+{id:'kem',t:'Kém: 没有 / 不如 / 不比',f:[['A','a'],['没有','k'],['B','b'],['(那么)','n'],['Adj','j']],
+tip:'Phủ định của 比 là 没有, không phải 不比. Dịch “A không … bằng B”. 不如 là bản ngắn gọn: A 不如 B (+ Adj). Cẩn thận: 不比 chỉ phủ nhận “hơn” (A có thể bằng hoặc kém B), còn 没有 mới chắc chắn là “kém”. Có động từ thì: A V得 没有 B Adj.',
+ex:[['今天没有昨天那么热。','Hôm nay không nóng bằng hôm qua.'],['骑车不如坐地铁方便。','Đi xe đạp không tiện bằng đi tàu điện.'],['我没有他高。','Tôi không cao bằng anh ấy.'],['我不比他矮。','Tôi không thấp hơn anh ấy. (có thể bằng hoặc cao hơn)'],['她跑得没有我快。','Cô ấy chạy không nhanh bằng tôi.']]},
+{id:'bang',t:'Bằng nhau: 跟 / 和 … 一样',f:[['A','a'],['跟','k'],['B','b'],['一样','k'],['Adj','j']],
+tip:'Nhớ: “A cùng với B giống nhau” — 一样 đứng ngay trước tính từ. Phủ định chỉ cần thêm 不 trước 一样.',
+ex:[['我跟他一样高。','Tôi cao bằng anh ấy.'],['他的想法跟我不一样。','Suy nghĩ của anh ấy không giống tôi.'],['他跟我一样喜欢踢足球。','Anh ấy cũng thích đá bóng như tôi.'],['她做饭做得跟妈妈一样好。','Cô ấy nấu ăn giỏi như mẹ.'],['这个跟那个差不多。','Cái này gần giống cái kia. (差不多 = gần như)']]},
+{id:'de',t:'Có động từ (không tân ngữ): V得 + Adj',f:[['A','a'],['比','k'],['B','b'],['V','j'],['得','k'],['Adj','j']],
+tip:'Mẹo: 得 luôn dính sau động từ, tính từ theo sau 得. Chỉ cần đặt 比 B ở trước động từ hoặc sau 得, ý nghĩa như nhau. Mức độ (多了 / 一点儿) vẫn đặt cuối câu.',
+ex:[['他比我跑得快。','Anh ấy chạy nhanh hơn tôi.'],['他跑得比我快多了。','Anh ấy chạy nhanh hơn tôi nhiều.'],['他跑得没有我快。','Anh ấy chạy không nhanh bằng tôi.']]},
+{id:'vo',t:'Có động từ + tân ngữ: lặp động từ',f:[['A','a'],['V','j'],['O','n'],['V','j'],['得','k'],['比 B','k'],['Adj','j']],
+tip:'Mẹo “1 đi 1 về”: động từ thứ nhất đi kèm tân ngữ, động từ thứ hai mới được mang 得. Có 2 cách đặt 比: ngay trước 得 hoặc đặt 比 B trước động từ lặp — chọn 1 là đủ. Phủ định: thay 比 bằng 没有.',
+ex:[['他说汉语说得比我好。','Anh ấy nói tiếng Hán giỏi hơn tôi.'],['他说汉语比我说得好。','(cách 2, cùng nghĩa)'],['妈妈做饭做得没有爸爸好。','Mẹ nấu ăn không ngon bằng bố.']]},
+{id:'sl',t:'Hơn về số lượng hành động: 多 / 少 / 早 / 晚',f:[['A','a'],['比','k'],['B','b'],['多/少/早/晚','k'],['V','j'],['了','n'],['số lượng','n'],['O','n']],
+tip:'Mẹo: 多 / 少 / 早 / 晚 đóng vai “trạng từ” nên đứng TRƯỚC động từ; con số đứng SAU động từ, trước tân ngữ.',
+ex:[['他比我多吃了一碗饭。','Anh ấy ăn nhiều hơn tôi một bát cơm.'],['他比我早到了十分钟。','Anh ấy đến sớm hơn tôi 10 phút.'],['我比朋友少买了两本书。','Tôi mua ít hơn bạn hai quyển sách.']]},
+{id:'vv',t:'Hành động so với hành động',f:[['V1(+O)','j'],['比','k'],['V2(+O)','j'],['Adj','j']],
+tip:'Mẹo: coi cả cụm động từ như một “danh từ”, rồi áp dụng công thức 比 bình thường.',
+ex:[['坐地铁比骑自行车方便。','Đi tàu điện tiện hơn đi xe đạp.'],['看书比看电视有意思。','Đọc sách thú vị hơn xem tivi.']]},
+{id:'tm',t:'Động từ tâm lý: dùng 更',f:[['A','a'],['比','k'],['B','b'],['更','k'],['喜欢/想','j'],['…','n']],
+tip:'Với 喜欢, 想, 爱… thì không dùng 很 sau 比, hãy dùng 更 (hoặc 还) đặt trước động từ.',
+ex:[['妹妹比我更喜欢吃辣的。','Em gái thích ăn cay hơn tôi.'],['她比我更想去中国。','Cô ấy muốn đi Trung Quốc hơn tôi.']]},
+{id:'max',t:'Hơn nhất: 最',f:[['(phạm vi)','n'],['A','a'],['最','k'],['Adj / 喜欢','j']],
+tip:'Mẹo: 最 = “nhất”, không cần 比, đặt ngay trước tính từ hoặc động từ tâm lý. Muốn nói “trong nhóm nào” thì đặt nhóm lên trước: 在…中 / 我们班. Có động từ + 得 thì 最 đứng sau 得: V得最 Adj. Danh từ: 最 + Adj + 的 + N.',
+ex:[['我们班他最高。','Trong lớp, anh ấy cao nhất.'],['我最喜欢吃面条。','Tôi thích ăn mì nhất.'],['他跑得最快。','Anh ấy chạy nhanh nhất.'],['她说汉语说得最好。','Cô ấy nói tiếng Hán giỏi nhất.'],['在我的朋友中,他最聪明。','Trong các bạn tôi, anh ấy thông minh nhất.'],['这是最贵的书。','Đây là quyển sách đắt nhất.']]},
+{id:'yue',t:'Càng ngày càng: 越来越 / 越…越…',f:[['A','a'],['越来越','k'],['Adj','j'],['了','n']],
+tip:'Mẹo: 越来越 = “ngày càng” (thay đổi theo thời gian, hay đi với 了). 越 V 越 Adj = “càng … càng …” (hai vế tăng cùng nhau). Không dùng 很 hoặc 比 trong hai cấu trúc này.',
+ex:[['天气越来越冷了。','Thời tiết ngày càng lạnh.'],['他的汉语越来越好。','Tiếng Hán của anh ấy ngày càng giỏi.'],['汉语越学越有意思。','Tiếng Hán càng học càng thú vị.'],['她越跑越快。','Cô ấy càng chạy càng nhanh.']]},
+{id:'tong',t:'Câu phức: xây từng lớp (động từ + tân ngữ)',f:[['A','a'],['V O','j'],['V','j'],['得','k'],['比 / 没有 / 一样 / 最','k'],['Adj','j']],
+tip:'Mẹo: câu phức chỉ là các câu đơn giản xếp chồng lên nhau. Làm 4 lớp: ① V O (hành động) → ② lặp V + 得 + Adj (đánh giá) → ③ chèn từ so sánh ngay trước Adj → ④ thêm mức độ ở cuối. Hiểu 4 lớp này là ghép được mọi câu.',
+ex:[['① 他说汉语。','Lớp 1: hành động + tân ngữ'],['② 他说汉语说得好。','Lớp 2: lặp động từ + 得 + tính từ'],['③ 他说汉语说得比我好。','Lớp 3: chèn 比我 ngay trước tính từ'],['④ 他说汉语说得比我好多了。','Lớp 4: thêm mức độ ở cuối'],['他说汉语说得没有我好。','Đổi lớp 3: kém (没有 thay 比)'],['他说汉语说得跟我一样好。','Đổi lớp 3: bằng nhau (跟…一样)'],['他说汉语说得最好。','Đổi lớp 3: hơn nhất (最, không cần B)']]},
+{id:'ma',t:'Bảng tổng hợp: V + tân ngữ trong mọi dạng so sánh',f:[['Hơn','k'],['Kém','k'],['Bằng','k'],['Nhất','k'],['Số lượng','k'],['Càng','k']],
+tip:'Mẹo: có tân ngữ thì có 2 đường: (a) lặp động từ, (b) đưa tân ngữ lên làm chủ đề (他唱歌唱得… → 他歌唱得…). Từ so sánh luôn nằm trước tính từ; số lượng của hành động thì nằm trước động từ (多/少/早/晚).',
+ex:[['他唱歌唱得比我好。','Hơn: A V O V得 比 B Adj'],['他唱歌唱得没有我好。','Kém: A V O V得 没有 B Adj'],['他唱歌唱得跟我一样好。','Bằng: A V O V得 跟 B 一样 Adj'],['他唱歌唱得最好。','Nhất: A V O V得 最 Adj'],['他比我多唱了两首歌。','Số lượng: A 比 B 多 V 了 số lượng O'],['他唱歌唱得越来越好。','Càng ngày càng: V O V得 越来越 Adj'],['他比我更喜欢唱歌。','Tâm lý: A 比 B 更 喜欢 V O']]}
+];
+var Q=[
+['bi','Anh ấy cao hơn tôi nhiều.',['他 比 我 高 得多'],'A 比 B + Adj + 得多','得多 đứng sau tính từ, không dùng 很.'],
+['bi','Hôm nay lạnh hơn hôm qua một chút.',['今天 比 昨天 冷 一点儿'],'A 比 B + Adj + 一点儿','一点儿 (một chút) đứng cuối câu, sau tính từ.'],
+['bi','Anh ấy lớn hơn tôi hai tuổi.',['他 比 我 大 两岁'],'A 比 B + Adj + số lượng','Số lượng đặt ngay sau tính từ.'],
+['bi','Quyển sách này đắt hơn quyển kia mười tệ.',['这本书 比 那本 贵 十块'],'A 比 B + Adj + số lượng','B là “quyển kia”, đứng ngay sau 比.'],
+['de','Anh ấy chạy nhanh hơn tôi.',['他 跑 得 比 我 快','他 比 我 跑 得 快'],'A V得 比 B Adj  /  A 比 B V得 Adj','Động từ dính với 得, tính từ theo sau 得.'],
+['de','Cô ấy hát hay hơn tôi nhiều.',['她 唱歌 唱 得 比 我 好 多了','她 唱歌 比 我 唱 得 好 多了'],'A V O V得 比 B Adj + 多了','Có tân ngữ (唱歌) thì phải lặp động từ 唱; 多了 đặt cuối.'],
+['vo','Anh ấy nói tiếng Hán giỏi hơn tôi.',['他 说 汉语 说 得 比 我 好','他 说 汉语 比 我 说 得 好'],'A V O V得 比 B Adj','Nhớ “1 đi 1 về”: 说 + 汉语, rồi 说 + 得.'],
+['vo','Mẹ nấu ăn không ngon bằng bố.',['妈妈 做饭 做 得 没有 爸爸 好','妈妈 做饭 没有 爸爸 做 得 好'],'A V O V得 没有 B Adj','Phủ định của 比 là 没有, không phải 不比.'],
+['vo','Tôi nói tiếng Anh không giỏi bằng cô ấy.',['我 说 英语 说 得 没有 她 好','我 说 英语 没有 她 说 得 好'],'A V O V得 没有 B Adj','Thay 比 bằng 没有, vẫn phải lặp động từ.'],
+['vo','Tôi nói tiếng Hán không bằng anh ấy.',['我 说 汉语 不如 他 说 得 好'],'A V O 不如 B V得 Adj','不如 thay chỗ của 比, B + V得 + Adj đi sau.'],
+['vo','Anh ấy bơi giỏi như tôi.',['他 游泳 游 得 跟 我 一样 好'],'A V O V得 跟 B 一样 Adj','一样 đứng ngay trước tính từ.'],
+['sl','Hôm qua anh ấy ngủ muộn hơn tôi một tiếng.',['昨天 他 比 我 晚 睡 了 一个小时','他 昨天 比 我 晚 睡 了 一个小时'],'A 比 B 晚 V 了 số lượng','晚 đứng trước động từ, số lượng đứng sau 了.'],
+['sl','Tôi mua ít hơn bạn hai quyển sách.',['我 比 朋友 少 买 了 两本 书'],'A 比 B 少 V 了 số lượng O','Tân ngữ (书) đứng cuối, sau số lượng.'],
+['sl','Anh ấy đến sớm hơn tôi mười phút.',['他 比 我 早 到 了 十分钟'],'A 比 B 早 V 了 số lượng','早 trước động từ, 十分钟 sau 了.'],
+['kem','Hôm nay không nóng bằng hôm qua.',['今天 没有 昨天 那么 热'],'A 没有 B 那么 Adj','没有 thay cho 比; 那么 đứng trước tính từ.'],
+['vv','Đi tàu điện ngầm tiện hơn đi xe đạp.',['坐地铁 比 骑自行车 方便'],'V1 比 V2 Adj','Hai cụm động từ nằm hai bên 比.'],
+['bang','Xe của tôi không giống xe của anh ấy.',['我的车 跟 他的 不一样'],'A 跟 B 不一样','Phủ định: thêm 不 trước 一样.'],
+['bang','Anh ấy cũng thích đá bóng như tôi.',['他 跟 我 一样 喜欢 踢 足球'],'A 跟 B 一样 + động từ','一样 đứng trước động từ 喜欢.'],
+['tm','Em gái thích ăn cay hơn tôi.',['妹妹 比 我 更 喜欢 吃 辣的'],'A 比 B 更 + 喜欢 …','Động từ tâm lý dùng 更, không dùng 很.'],
+['kem','Tôi không cao bằng anh ấy.',['我 没有 他 高'],'A 没有 B + Adj','没有 đứng giữa A và B, tính từ để cuối câu.'],
+['kem','Đi xe đạp không tiện bằng đi tàu điện.',['骑车 不如 坐地铁 方便'],'V1 不如 V2 + Adj','不如 = “không bằng”, đặt giữa hai hành động.'],
+['kem','Tôi không thấp hơn anh ấy.',['我 不比 他 矮'],'A 不比 B + Adj','不比 chỉ phủ nhận “hơn”: A bằng hoặc hơn B.'],
+['kem','Cô ấy chạy không nhanh bằng tôi.',['她 跑 得 没有 我 快','她 没有 我 跑 得 快'],'A V得 没有 B Adj  /  A 没有 B V得 Adj','Có động từ: 没有 thay chỗ 比, 得 vẫn dính sau động từ.'],
+['kem','Cái này không đắt như cái kia.',['这个 没有 那个 那么 贵'],'A 没有 B 那么 Adj','那么 đứng ngay trước tính từ.'],
+['bang','Cái này giống cái kia.',['这个 跟 那个 一样'],'A 跟 B 一样','Cặp 跟…一样 bao quanh B.'],
+['bang','Anh ấy bằng tuổi tôi.',['他 和 我 一样 大'],'A 和 B 一样 + Adj','和 và 跟 dùng như nhau; 大 nghĩa là “lớn tuổi”.'],
+['bang','Thành phố này đẹp như thành phố kia.',['这个城市 跟 那个城市 一样 漂亮'],'A 跟 B 一样 + Adj','Tính từ đứng sau 一样.'],
+['bang','Cô ấy nấu ăn giỏi như mẹ.',['她 做饭 做 得 跟 妈妈 一样 好'],'A V O V得 跟 B 一样 Adj','Có tân ngữ thì phải lặp động từ.'],
+['bang','Cái quần này không giống cái kia.',['这条裤子 跟 那条 不一样'],'A 跟 B 不一样','Phủ định: 不 đứng trước 一样.'],
+['max','Trong lớp, anh ấy cao nhất.',['我们班 他 最 高'],'(phạm vi) A 最 Adj','Phạm vi nói trước, 最 ngay trước tính từ.'],
+['max','Tôi thích ăn mì nhất.',['我 最 喜欢 吃 面条'],'A 最 + 喜欢 + …','最 đứng trước 喜欢, không dùng 很.'],
+['max','Anh ấy chạy nhanh nhất.',['他 跑 得 最 快'],'A V得 最 Adj','最 đứng sau 得, trước tính từ.'],
+['max','Cô ấy nói tiếng Hán giỏi nhất.',['她 说 汉语 说 得 最 好'],'A V O V得 最 Adj','Vẫn lặp động từ: 说 汉语 说 得.'],
+['max','Trong các bạn của tôi, anh ấy thông minh nhất.',['在 我的 朋友 中 他 最 聪明','他 在 我的 朋友 中 最 聪明'],'在 …中, A 最 Adj','在…中 chỉ phạm vi, đặt trước hoặc sau chủ ngữ.'],
+['max','Đây là quyển sách đắt nhất.',['这 是 最 贵 的 书'],'A 是 最 Adj 的 N','最 + Adj + 的 + danh từ.'],
+['yue','Thời tiết ngày càng lạnh.',['天气 越来越 冷 了'],'A 越来越 Adj 了','越来越 đứng trước tính từ, 了 cuối câu.'],
+['yue','Tiếng Hán của anh ấy ngày càng giỏi.',['他的 汉语 越来越 好 了'],'A 越来越 Adj 了','Không dùng 很 với 越来越.'],
+['yue','Tiếng Hán càng học càng thú vị.',['汉语 越 学 越 有意思'],'A 越 V 越 Adj','Hai chữ 越 đứng trước động từ và tính từ.'],
+['yue','Cô ấy càng chạy càng nhanh.',['她 越 跑 越 快'],'A 越 V 越 Adj','越 + động từ, 越 + tính từ.'],
+['tong','Cô ấy chơi piano giỏi nhất.',['她 弹 钢琴 弹 得 最 好'],'A V O V得 最 Adj','Lớp 1: 弹钢琴. Lớp 2: lặp 弹 + 得. Lớp 3: 最 trước 好.'],
+['tong','Tôi viết chữ Hán chậm hơn anh ấy một chút.',['我 写 汉字 写 得 比 他 慢 一点儿','我 写 汉字 比 他 写 得 慢 一点儿'],'A V O V得 比 B Adj + 一点儿','Mức độ 一点儿 luôn đứng cuối câu.'],
+['tong','Anh ấy bơi nhanh hơn tôi nhiều.',['他 游泳 游 得 比 我 快 多了','他 游泳 比 我 游 得 快 多了'],'A V O V得 比 B Adj + 多了','游泳 là V O nên phải lặp 游; 多了 ở cuối.'],
+['tong','Tôi nhảy không đẹp bằng cô ấy.',['我 跳舞 跳 得 没有 她 好看','我 跳舞 没有 她 跳 得 好看'],'A V O V得 没有 B Adj','Lớp 3: 没有 她 thay cho 比 B.'],
+['tong','Mỗi ngày anh ấy học tiếng Hán nhiều hơn tôi hai tiếng.',['他 每天 比 我 多 学 两个小时 汉语','每天 他 比 我 多 学 两个小时 汉语'],'A 比 B 多 V + số lượng + O','多 trước động từ, thời lượng đứng trước tân ngữ.'],
+['tong','Cô ấy uống nhiều hơn tôi hai ly trà.',['她 比 我 多 喝 了 两杯 茶'],'A 比 B 多 V 了 số lượng O','Số lượng 两杯 nằm trước tân ngữ 茶.'],
+['tong','Em trai xem tivi ít hơn tôi một tiếng.',['弟弟 比 我 少 看 了 一个小时 电视'],'A 比 B 少 V 了 số lượng O','少 đứng trước 看, thời lượng trước 电视.'],
+['tong','Tôi thích xem phim hơn cô ấy.',['我 比 她 更 喜欢 看 电影'],'A 比 B 更 喜欢 V O','Động từ tâm lý dùng 更, tân ngữ ở cuối.'],
+['tong','Đá bóng thú vị hơn đánh bóng rổ.',['踢足球 比 打篮球 有意思'],'V1 O1 比 V2 O2 + Adj','Cả cụm V O đứng hai bên 比.'],
+['tong','Anh ấy đá bóng càng đá càng giỏi.',['他 踢 足球 越 踢 越 好'],'A V O 越 V 越 Adj','Có tân ngữ: V O rồi mới 越 V 越 Adj.'],
+['tong','Anh ấy lái xe nhanh như tôi.',['他 开车 开 得 跟 我 一样 快'],'A V O V得 跟 B 一样 Adj','Lặp 开, 一样 trước tính từ.'],
+['tong','Anh ấy nấu ăn ngày càng ngon.',['他 做饭 做 得 越来越 好'],'A V O V得 越来越 Adj','越来越 đứng sau 得, trước tính từ.'],
+['tong','Tôi nói tiếng Anh giỏi hơn cô ấy một chút.',['我 说 英语 说 得 比 她 好 一点儿','我 说 英语 比 她 说 得 好 一点儿'],'A V O V得 比 B Adj + 一点儿','Lặp 说; 一点儿 sau tính từ.'],
+['vo','Anh trai tôi nói tiếng Anh giỏi hơn tôi rất nhiều.',['我 哥哥 说 英语 说 得 比 我 好 多了','我 哥哥 说 英语 比 我 说 得 好 多了'],'A V O V得 比 B Adj 多了','Lặp 说, 多了 ở cuối.',1],
+['vo','Hôm qua cô ấy làm bài tập nhanh hơn tôi một chút.',['昨天 她 做 作业 做 得 比 我 快 一点儿','昨天 她 做 作业 比 我 做 得 快 一点儿'],'A V O V得 比 B Adj 一点儿','Lặp 做, 一点儿 cuối câu.',1],
+['tong','Mẹ nấu ăn không ngon bằng bà ngoại.',['妈妈 做饭 做 得 没有 外婆 好吃','妈妈 做饭 没有 外婆 做 得 好吃'],'A V O V得 没有 B Adj','没有 thay 比, vẫn lặp động từ.',1],
+['sl','Chiều nay anh ấy đến muộn hơn tôi hai mươi phút.',['今天下午 他 比 我 晚 到 了 二十分钟'],'A 比 B 晚 V 了 số lượng','晚 trước động từ, số lượng sau 了.',1],
+['sl','Hôm nay tôi ăn ít hơn hôm qua hai bát cơm.',['今天 我 比 昨天 少 吃 了 两碗 饭'],'A 比 B 少 V 了 số lượng O','Số lượng 两碗 đứng trước tân ngữ 饭.',1],
+['max','Trong các môn học, tôi thích môn tiếng Hán nhất.',['在 这些 课 中 我 最 喜欢 汉语课','我 在 这些 课 中 最 喜欢 汉语课'],'在…中, A 最 喜欢 …','在…中 chỉ phạm vi, 最 trước 喜欢.',1],
+['yue','Tôi học tiếng Hán càng học càng thích.',['我 学 汉语 越 学 越 喜欢'],'A V O 越 V 越 Adj','Có tân ngữ: V O rồi mới 越 V 越.',1],
+['vv','Đi bộ đến trường không nhanh bằng đi xe buýt.',['走路去学校 不如 坐公共汽车 快'],'V1 不如 V2 Adj','不如 nằm giữa hai cụm hành động.',1],
+['vv','Mua đồ trên mạng rẻ hơn mua ở cửa hàng.',['在网上买东西 比 在商店买 便宜'],'V1 比 V2 Adj','Hai cụm V O hai bên 比.',1],
+['bang','Điện thoại của tôi giống điện thoại của cô ấy.',['我的手机 跟 她的 一样'],'A 跟 B 一样','Cặp 跟…一样.',1],
+['bang','Hôm nay trời lạnh như hôm qua.',['今天 跟 昨天 一样 冷'],'A 跟 B 一样 Adj','一样 trước tính từ.',1],
+['tong','Anh ấy học tiếng Hán chăm chỉ như tôi.',['他 学 汉语 学 得 跟 我 一样 努力'],'A V O V得 跟 B 一样 Adj','Lặp 学, 一样 trước 努力.',1],
+['kem','Con trai chưa cao bằng tôi.',['儿子 还 没有 我 高'],'A 还 没有 B Adj','还 (vẫn) đứng trước 没有.',1],
+['kem','Quần áo ở đây không đắt như ở kia.',['这里的衣服 没有 那里的 那么 贵'],'A 没有 B 那么 Adj','那么 trước tính từ.',1],
+['kem','Mùa đông ở Hà Nội không lạnh bằng ở Bắc Kinh.',['河内的冬天 没有 北京的 冷'],'A 没有 B Adj','Bỏ danh từ lặp: 北京的 = của Bắc Kinh.',1],
+['kem','Học tiếng Hán không dễ bằng học tiếng Anh.',['学汉语 不如 学英语 容易'],'V1 不如 V2 Adj','不如 giữa hai cụm hành động.',1],
+['de','Em gái ngủ muộn hơn tôi một chút.',['妹妹 比 我 睡 得 晚 一点儿','妹妹 睡 得 比 我 晚 一点儿'],'A 比 B V得 Adj 一点儿','得 dính sau động từ.',1],
+['de','Cô ấy ăn nhanh hơn tôi nhiều.',['她 吃 得 比 我 快 多了','她 比 我 吃 得 快 多了'],'A V得 比 B Adj 多了','Không dùng 很.',1],
+['de','Hôm nay tôi ngủ không ngon bằng hôm qua.',['今天 我 睡 得 没有 昨天 好','我 今天 睡 得 没有 昨天 好'],'A V得 没有 B Adj','没有 thay 比.',1],
+['tm','Tôi thích mùa đông hơn anh ấy.',['我 比 他 更 喜欢 冬天'],'A 比 B 更 喜欢 …','Động từ tâm lý dùng 更.',1],
+['tm','Cô ấy muốn mua điện thoại mới hơn anh trai.',['她 比 哥哥 更 想 买 新手机'],'A 比 B 更 想 V O','更 trước 想.',1],
+['tm','Trẻ con thích ăn kẹo hơn người lớn.',['孩子 比 大人 更 喜欢 吃 糖'],'A 比 B 更 喜欢 V O','更 trước 喜欢, không dùng 很.',1],
+['bi','Chiếc xe này đắt hơn chiếc kia ba nghìn tệ.',['这辆车 比 那辆 贵 三千块'],'A 比 B Adj số lượng','Số lượng sau tính từ.',1],
+['bi','Mùa hè năm nay nóng hơn năm ngoái nhiều.',['今年的夏天 比 去年 热 得多'],'A 比 B Adj 得多','得多 sau tính từ.',1],
+['bi','Chị tôi lớn hơn tôi ba tuổi.',['我 姐姐 比 我 大 三岁'],'A 比 B Adj số lượng','三岁 sau 大.',1],
+['bi','Thành phố này lớn hơn thành phố của tôi nhiều.',['这个城市 比 我的城市 大 多了'],'A 比 B Adj 多了','多了 cuối câu.',1],
+['bi','Phòng này sạch hơn phòng kia một chút.',['这个房间 比 那个 干净 一点儿'],'A 比 B Adj 一点儿','一点儿 sau tính từ.',1],
+['bi','Hôm nay tôi bận hơn hôm qua rất nhiều.',['我 今天 比 昨天 忙 多了','今天 我 比 昨天 忙 多了'],'A 比 B Adj 多了','Tính từ để trần.',1],
+['sl','Tuần trước anh ấy đọc nhiều hơn tôi ba quyển sách.',['上个星期 他 比 我 多 看 了 三本 书'],'A 比 B 多 V 了 số lượng O','多 trước động từ.',1],
+['sl','Sáng nay anh ấy dậy sớm hơn tôi một tiếng.',['今天早上 他 比 我 早 起床 了 一个小时'],'A 比 B 早 V 了 số lượng','早 trước động từ.',1],
+['sl','Tôi mua nhiều hơn cô ấy hai bộ quần áo.',['我 比 她 多 买 了 两件 衣服'],'A 比 B 多 V 了 số lượng O','Số lượng trước tân ngữ.',1],
+['sl','Anh ấy đi muộn hơn tôi mười phút.',['他 比 我 晚 走 了 十分钟'],'A 比 B 晚 V 了 số lượng','晚 trước động từ.',1],
+['tong','Anh trai tôi lái xe tốt hơn bố tôi.',['我 哥哥 开车 开 得 比 爸爸 好','我 哥哥 开车 比 爸爸 开 得 好'],'A V O V得 比 B Adj','Lặp 开.',1],
+['tong','Cô ấy viết chữ đẹp nhất lớp chúng tôi.',['我们班 她 写 字 写 得 最 好看'],'(phạm vi) A V O V得 最 Adj','Lặp 写, 最 sau 得.',1],
+['tong','Cô ấy chơi bóng rổ không giỏi bằng tôi.',['她 打 篮球 打 得 没有 我 好','她 打 篮球 没有 我 打 得 好'],'A V O V得 没有 B Adj','Lặp 打.',1],
+['tong','Bạn tôi nói tiếng Hán ngày càng giỏi.',['我的 朋友 说 汉语 说 得 越来越 好'],'A V O V得 越来越 Adj','越来越 sau 得.',1],
+['tong','Anh ấy hát hay như ca sĩ.',['他 唱歌 唱 得 跟 歌手 一样 好'],'A V O V得 跟 B 一样 Adj','Lặp 唱.',1],
+['tong','Hôm qua cô ấy ăn ít hơn tôi hai bát mì.',['昨天 她 比 我 少 吃 了 两碗 面条'],'A 比 B 少 V 了 số lượng O','少 trước động từ.',1],
+['tong','Tôi chạy bộ nhanh hơn anh ấy một chút.',['我 跑步 跑 得 比 他 快 一点儿','我 跑步 比 他 跑 得 快 一点儿'],'A V O V得 比 B Adj 一点儿','Lặp 跑.',1],
+['tong','Mỗi ngày cô ấy đọc sách nhiều hơn tôi nửa tiếng.',['她 每天 比 我 多 看 半个小时 书'],'A 比 B 多 V số lượng O','Thời lượng trước tân ngữ.',1],
+['max','Tôi thích uống trà nóng nhất.',['我 最 喜欢 喝 热茶'],'A 最 喜欢 V O','最 trước 喜欢.',1],
+['max','Trong ba anh em chúng tôi, anh ấy cao nhất.',['在 我们 三个人 中 他 最 高','他 在 我们 三个人 中 最 高'],'在…中, A 最 Adj','Phạm vi 在…中.',1],
+['max','Đây là món ngon nhất tôi từng ăn.',['这 是 我 吃过 的 最 好吃 的 菜'],'最 Adj 的 N','Mệnh đề + 的 + 最…的 + N.',1],
+['max','Hôm nay là ngày vui nhất của tôi.',['今天 是 我 最 高兴 的 一天'],'A 是 最 Adj 的 N','最 trước 高兴.',1],
+['yue','Thành phố này ngày càng đẹp.',['这个城市 越来越 漂亮 了'],'A 越来越 Adj 了','Không dùng 很.',1],
+['yue','Bài này càng đọc càng hiểu.',['这篇 课文 越 看 越 明白'],'A 越 V 越 Adj','越 trước V và Adj.',1],
+['yue','Nước càng nóng càng tốt.',['水 越 热 越 好'],'A 越 Adj 越 Adj','Hai vế đi cùng nhau.',1],
+['bang','Tôi và cô ấy thích ăn cay như nhau.',['我 跟 她 一样 喜欢 吃 辣的'],'A 跟 B 一样 V …','一样 trước động từ.',1],
+['kem','Món này không cay như món kia.',['这个菜 没有 那个菜 那么 辣'],'A 没有 B 那么 Adj','那么 trước tính từ.',1],
+['vv','Xem phim không thú vị bằng đọc sách.',['看电影 不如 看书 有意思'],'V1 不如 V2 Adj','不如 giữa hai hành động.',1]
+];
+var $=function(i){return document.getElementById(i)};
+var S={},MODE='all',AC,MUTE=false;
+function snd(k){if(MUTE)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();var n=AC.currentTime,g=k==='ok';(g?[[659,0],[880,.12],[1175,.24]]:[[220,0],[165,.18]]).forEach(function(x){var o=AC.createOscillator(),v=AC.createGain(),t=n+x[1];o.type=g?'sine':'sawtooth';o.frequency.value=x[0];v.gain.setValueAtTime(.0001,t);v.gain.exponentialRampToValueAtTime(g?.18:.1,t+.02);v.gain.exponentialRampToValueAtTime(.0001,t+(g?.2:.3));o.connect(v);v.connect(AC.destination);o.start(t);o.stop(t+.35)})}catch(e){}}
+function toggleSnd(){MUTE=!MUTE;$('snd').textContent=MUTE?'🔇 Tắt tiếng':'🔊 Bật tiếng'}
+function setTheme(t){document.documentElement.setAttribute('data-theme',t);$('th').textContent=t==='dark'?'☀️ Sáng':'🌙 Tối'}
+function toggleTheme(){setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')}
+function setMode(m){MODE=m;start()}
+function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function title(id){return P.filter(function(p){return p.id===id})[0].t}
+function tab(x){$('learn').classList.toggle('hide',x!=='l');$('prac').classList.toggle('hide',x!=='p');$('tl').classList.toggle('on',x==='l');$('tp').classList.toggle('on',x==='p');window.scrollTo(0,0);if(x==='p'&&!S.q)start()}
+function renderLearn(){
+var h='';
+P.forEach(function(p){
+h+='<section class="card"><h3>'+p.t+'</h3><div class="f">'+p.f.map(function(c){return '<span class="c '+c[1]+'">'+c[0]+'</span>'}).join('')+'</div><p class="tip"><b>Mẹo:</b> '+p.tip+'</p><ul class="ex">'+p.ex.map(function(e){return '<li><span class="zh">'+e[0]+'</span><small>'+e[1]+'</small></li>'}).join('')+'</ul></section>'});
+h+='<section class="card"><h3>Lỗi hay gặp</h3><table class="warn">'+[
+['他比我很高。','他比我高得多。'],['他说得汉语比我好。','他说汉语说得比我好。'],['他比我多吃一碗了饭。','他比我多吃了一碗饭。'],['我不比他高。(ý “kém hơn”)','我没有他高。'],['他比我很喜欢游泳。','他比我更喜欢游泳。']
+].map(function(r){return '<tr><td class="x zh">✗ '+r[0]+'</td><td class="v zh">✓ '+r[1]+'</td></tr>'}).join('')+'</table></section>';
+h+='<button class="btn pri" onclick="tab(\'p\')">Sang phần luyện tập</button>';
+$('learn').innerHTML=h}
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function start(){
+S={q:shuf(Q.filter(function(x){return MODE==='hard'?x[5]===1:(MODE==='all'||['vo','tong','sl','de'].indexOf(x[0])>-1)})).slice(0,MODE==='hard'?50:10),i:0,score:0,wrong:{},done:0,right:0};load()}
+function load(){
+var q=S.q[S.i],w=q[2][0].split(' ');
+var tiles=w.map(function(x,k){return {id:k,w:x}});
+var sh=shuf(tiles),n=0;while(sh.every(function(t,k){return t.w===w[k]})&&n++<5)sh=shuf(tiles);
+S.tiles=sh;S.ans=[];S.tries=0;S.last='';S.hint=false;S.state='play';S.marks=[];S.fb='';draw()}
+function toAns(id){if(S.state!=='play')return;S.ans.push(id);S.marks=[];S.fb='';draw()}
+function toBank(k){if(S.state!=='play')return;S.ans.splice(k,1);S.marks=[];S.fb='';draw()}
+function word(id){return S.tiles.filter(function(t){return t.id===id})[0].w}
+function check(){
+var q=S.q[S.i],w=S.ans.map(word),str=w.join(' ');S.last=w.join('');
+if(q[2].indexOf(str)>-1){
+var pts=Math.max(2,10-3*S.tries-(S.hint?2:0));S.score+=pts;S.right++;S.done++;S.state='ok';S.pts=pts;snd('ok');S.marks=w.map(function(){return 1});draw();return}
+S.tries++;S.wrong[q[0]]=(S.wrong[q[0]]||0)+1;
+var best=q[2][0].split(' '),bs=-1;
+q[2].forEach(function(a){var b=a.split(' '),s=0;b.forEach(function(x,k){if(w[k]===x)s++});if(s>bs){bs=s;best=b}});
+S.marks=w.map(function(x,k){return x===best[k]?1:0});
+var m=[];
+if(w.length<best.length)m.push('Bạn chưa dùng hết các thẻ ('+w.length+'/'+best.length+').');
+var bi=w.indexOf('比'),k0=w.indexOf('得');
+if(bi===0||bi===w.length-1)m.push('比 phải nằm giữa hai đối tượng được so sánh (A 比 B).');
+if(k0===0)m.push('得 phải đứng sau động từ, không đứng đầu câu.');
+if(!m.length)m.push('Các thẻ đỏ đang sai vị trí so với mẫu gần nhất. Thử đổi chỗ chúng.');
+S.fb=m;snd('bad');draw()}
+function reveal(){var q=S.q[S.i];if(!S.tries){S.wrong[q[0]]=(S.wrong[q[0]]||0)+1;S.fb=['Bạn chưa nộp câu trả lời nào nên chưa được tính đúng.']}S.done++;S.state='rev';S.pts=0;draw()}
+function next(){if(S.i+1>=S.q.length){S.state='end';draw()}else{S.i++;load()}}
+function draw(){
+var el=$('prac');
+if(S.state==='end'){
+var acc=Math.round(S.right/S.q.length*100),weak=Object.keys(S.wrong).sort(function(a,b){return S.wrong[b]-S.wrong[a]});
+var g=acc>=80?'Rất tốt! Bạn nắm chắc phần này.':acc>=50?'Khá ổn, ôn lại vài mẫu bên dưới nhé.':'Cần ôn thêm, xem lại phần Học rồi thử lại.';
+el.innerHTML='<div class="card"><h3>Kết quả vòng này</h3><div class="big">'+S.score+'<small style="font-size:1rem;color:var(--mut)"> / '+S.q.length*10+' điểm</small></div><p>'+g+'</p><div class="stat"><div><b>'+S.right+'/'+S.q.length+'</b>đúng ngay hoặc sau khi sửa</div><div><b>'+acc+'%</b>chính xác</div></div>'+(weak.length?'<div class="tip"><b>Nên ôn lại:</b><br>'+weak.map(function(k){return '• '+title(k)+' (sai '+S.wrong[k]+' lần)'}).join('<br>')+'</div>':'<div class="tip">Không sai lần nào, tuyệt vời!</div>')+'<div class="row"><button class="btn pri" onclick="start()">Làm vòng mới</button><button class="btn" onclick="tab(\'l\')">Xem lại lý thuyết</button></div></div>';return}
+var q=S.q[S.i],fin=S.state!=='play',used={};S.ans.forEach(function(a){used[a]=1});
+var h='<div class="tabs" style="margin-bottom:12px"><button class="'+(MODE==='all'?'on':'')+'" onclick="setMode(\'all\')">Tất cả dạng</button><button class="'+(MODE==='vo'?'on':'')+'" onclick="setMode(\'vo\')">Động từ + tân ngữ</button><button class="'+(MODE==='hard'?'on':'')+'" onclick="setMode(\'hard\')">50 câu khó</button></div><div class="card"><div class="bar"><span>Câu '+(S.i+1)+'/'+S.q.length+'</span><span>Điểm: <b>'+S.score+'</b></span></div><div class="prog"><i style="width:'+(S.i/S.q.length*100)+'%"></i></div>';
+h+='<p class="q">'+esc(q[1])+'</p><p class="tag">Dạng: '+title(q[0])+'</p><div class="ans">'+S.ans.map(function(id,k){var c=S.marks[k]===1?' ok':S.marks[k]===0?' bad':'';return '<button class="t'+c+'" '+(fin?'disabled':'onclick="toBank('+k+')"')+'>'+S.tiles.filter(function(t){return t.id===id})[0].w+'</button>'}).join('')+'</div>';
+h+='<div class="bank">'+S.tiles.map(function(t){return '<button class="t'+(used[t.id]?' used':'')+'" '+(fin?'disabled':'onclick="toAns('+t.id+')"')+'>'+t.w+'</button>'}).join('')+'</div>';
+if(S.state==='play'){
+h+='<div class="row"><button class="btn pri" onclick="check()" '+(S.ans.length?'':'disabled')+'>Kiểm tra</button><button class="btn" onclick="S.ans=[];S.marks=[];S.fb=\'\';draw()">Xóa hết</button><button class="btn" onclick="S.hint=true;draw()">Gợi ý</button><button class="btn" onclick="reveal()">Xem đáp án</button></div>';
+if(S.hint)h+='<div class="tip" style="margin-top:12px"><b>Gợi ý:</b> <span class="zh">'+q[3]+'</span></div>';
+if(S.fb){h+='<div class="fb err"><b>✗ SAI (lần '+S.tries+')</b><p>Câu bạn ghép: <span class="zh">'+S.last+'</span></p><p><b style="display:inline">Lỗi sai:</b></p>'+S.fb.map(function(m){return '<p>• '+m+'</p>'}).join('')+'<p><b style="display:inline">Công thức đúng:</b> <span class="zh">'+q[3]+'</span></p><p><b style="display:inline">Mẹo sửa:</b> '+q[4]+'</p><p>Sửa các thẻ đỏ rồi bấm Kiểm tra lại.</p></div>'}
+}else{
+var ok=S.state==='ok';
+h+='<div class="fb '+(ok?'good':'err')+'"><b>'+(ok?'✓ ĐÚNG! +'+S.pts+' điểm'+(S.tries?' (sau '+S.tries+' lần sửa)':''):'✗ SAI: câu này chưa làm đúng')+'</b>';
+if(S.last)h+='<p>Câu bạn ghép'+(ok?'':' gần nhất')+': <span class="zh">'+S.last+'</span></p>';
+if(!ok){h+='<p><b style="display:inline">Lỗi sai:</b></p>'+S.fb.map(function(m){return '<p>• '+m+'</p>'}).join('');h+='<p><b style="display:inline">Đáp án mẫu:</b></p><p class="zh" style="font-size:1.2rem">'+q[2][0].replace(/ /g,'')+'</p>'}
+if(q[2].length>1)h+='<p>Cách khác cũng đúng:</p>'+q[2].map(function(a){return '<p class="zh" style="font-size:1.1rem;margin:2px 0">'+a.replace(/ /g,'')+'</p>'}).join('');
+h+='<p><b style="display:inline">Công thức:</b> <span class="zh">'+q[3]+'</span></p><p><b style="display:inline">Mẹo:</b> '+q[4]+'</p></div><div class="row" style="margin-top:12px"><button class="btn pri" onclick="next()">'+(S.i+1>=S.q.length?'Xem kết quả':'Câu tiếp theo')+'</button></div>'}
+el.innerHTML=h+'</div>'}
+renderLearn();
+setTheme(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+</script>
+</body>
+</html>
